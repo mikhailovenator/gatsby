@@ -1,7 +1,7 @@
 ---
 headerImage:
   image: logo-full.png
-  imageAlt: test2
+  imageAlt: test23
 testImage: logo-full.png
 title: My First Page
 disclaimer: "*BOSS Wireless service subject to terms and conditions. Visit
