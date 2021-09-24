@@ -14,6 +14,13 @@ module.exports = {
             name: `pages`,
           },
         },
+        {
+          resolve: 'gatsby-source-filesystem',
+          options: {
+            name: 'assets',
+            path: `${__dirname}/static/assets`
+          }
+        },
         `gatsby-plugin-react-helmet`,
         `gatsby-plugin-netlify-cms`,
         {
@@ -32,6 +39,24 @@ module.exports = {
               ns: ["translation"],
             },
           },
-        }
+        },
+        "gatsby-plugin-sharp",
+        "gatsby-transformer-sharp",
+        {
+          resolve: `gatsby-plugin-mdx`,
+          options: {
+            extensions: [`.mdx`, `.md`],
+            gatsbyRemarkPlugins: [
+              `gatsby-remark-images-anywhere`
+            ],
+          },
+        },
+        {
+          resolve: 'gatsby-source-filesystem',
+          options: {
+            name: 'pageData',
+            path: `${__dirname}/src/pageData`
+          }
+        },
       ]
     }

@@ -1,15 +1,119 @@
 backend:
   name: git-gateway
 local_backend: true
+publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: /assets
 collections:
-  - name: blog
-    label: Blog
-    folder: blog
-    create: true
-    fields:
-      - { name: path, label: Path }
-      - { name: date, label: Date, widget: datetime }
-      - { name: title, label: Title }
-      - { name: body, label: Body, widget: markdown }
+  - name: "en-pages"
+    media_folder: ''
+    public_folder: ''
+    label: "Pages (English)"
+    files:
+      - file: "src/pageData/en-us/home/index.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - {
+              label: "Header Image",
+              name: "headerImage",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                ],
+            }
+          - { label: "Test Image", name: "testImage", widget: "image" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Disclaimer", name: "disclaimer", widget: "string" }
+          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
+          - {
+              label: "Offers",
+              name: "offers",
+              widget: "list",
+              fields:
+                [
+                  { label: "Label", name: "label", widget: "string" },
+                  { label: "Offer Type", name: "offerType", widget: "select", options: ["hot", "regular"] },
+                  { label: "Image", name: "offerImage", widget: "image" },
+                ],
+            }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
+  - name: "es-pages"
+    media_folder: ''
+    public_folder: ''
+    label: "Pages (Spanish)"
+    files:
+      - file: "src/pageData/es-us/home/index.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - {
+              label: "Header Image",
+              name: "headerImage",
+              widget: "object",
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                ],
+            }
+          - { label: "Test Image", name: "testImage", widget: "image" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Disclaimer", name: "disclaimer", widget: "string" }
+          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
+          - {
+              label: "Offers",
+              name: "offers",
+              widget: "list",
+              fields:
+                [
+                  { label: "Label", name: "label", widget: "string" },
+                  { label: "Offer Type", name: "offerType", widget: "select", options: ["hot", "regular"] },
+                  { label: "Image", name: "offerImage", widget: "image" },
+                ],
+            }
+          - {
+              label: "SEO & Meta",
+              name: "seo",
+              widget: "object",
+              fields:
+                [
+                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
+                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
+  - name: "en-settings"
+    label: "Settings (English)"
+    files:
+      - file: "src/pageData/en-us/footer/index.md"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
+          - { label: "Copyright", name: "copyright", widget: "string" }
+  - name: "es-settings"
+    label: "Settings (Spanish)"
+    files:
+      - file: "src/pageData/es-us/footer/index.md"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
+          - { label: "Copyright", name: "copyright", widget: "string" }
