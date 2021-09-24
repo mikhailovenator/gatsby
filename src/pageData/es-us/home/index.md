@@ -1,7 +1,7 @@
 ---
 headerImage:
   image: logo-full.png
-  imageAlt: Hola
+  imageAlt: Hola2
 testImage: logo-full.png
 title: Hola
 disclaimer: "*El servicio de BOSS Wireless esta sujeto a términos y
