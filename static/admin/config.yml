@@ -1,6 +1,13 @@
-backend:
-  name: git-gateway
-local_backend: true
+name: github
+  repo: mikhailovenator/gatsby
+  branch: master
+  auth_scope: repo
+  # open_authoring: true
+  # squash_merges: true
+  # use_workflow: true
+  base_url2: http://localhost:9090
+  base_url: https://bosswireless-oauth-cms-provider.loca.lt
+# local_backend: true
 publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: /assets
