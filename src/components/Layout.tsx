@@ -8,8 +8,8 @@ const Layout = ({ children }: LayoutProps) => {
     return (
         <>
           <Header />
-          <main className="container mx-auto mb-6 mt-8 max-w-3xl">
-            <section className="mx-auto max-w-3xl">{children}</section>
+          <main className="px-4 py-3 max-w-2xl mx-auto lg:max-w-6xl">
+            {children}
           </main>
           <Footer />
         </>
