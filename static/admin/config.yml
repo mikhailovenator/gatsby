@@ -1,4 +1,5 @@
-name: github
+backend:
+  name: github
   repo: mikhailovenator/gatsby
   branch: master
   auth_scope: repo
