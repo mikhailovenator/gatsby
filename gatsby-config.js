@@ -22,7 +22,12 @@ module.exports = {
           }
         },
         `gatsby-plugin-react-helmet`,
-        `gatsby-plugin-netlify-cms`,
+        {
+          resolve: 'gatsby-plugin-netlify-cms',
+          options: {
+            modulePath: `${__dirname}/src/cms/cms.js`
+          }
+        },
         {
           resolve: `gatsby-theme-i18n`,
           options: {
@@ -54,8 +59,15 @@ module.exports = {
         {
           resolve: 'gatsby-source-filesystem',
           options: {
-            name: 'pageData',
-            path: `${__dirname}/src/pageData`
+            name: 'pageDataEn',
+            path: `${__dirname}/src/pageData/en-us`
+          }
+        },
+        {
+          resolve: 'gatsby-source-filesystem',
+          options: {
+            name: 'pageDataEs',
+            path: `${__dirname}/src/pageData/es-us`
           }
         },
       ]

@@ -1,3 +1,4 @@
 ---
+contentKey: footer
 copyright: COPYRIGHT © 2021 IDT TELECOM, INC. - TODOS LOS DERECHOS RESERVADOS
 ---
