@@ -7,7 +7,7 @@ backend:
   # squash_merges: true
   # use_workflow: true
   base_url2: http://localhost:9090
-  base_url: https://bosswireless-oauth-cms-provider.loca.lt
+  base_url: https://bosswireless-oauth-provider.dev.aws.idt.net
 # local_backend: true
 publish_mode: editorial_workflow
 media_folder: static/assets
