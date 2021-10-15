@@ -14,7 +14,7 @@ backend:
     delete: Delete {{collection}} “{{slug}}” {{author-login}}{{author-name}}
     uploadMedia: Upload “{{path}}” {{author-login}}{{author-name}}
     deleteMedia: Delete “{{path}}” {{author-login}}{{author-name}}
-    openAuthoring: '{{message}}
+    openAuthoring: '{{message}}'
 # local_backend: true
 site_url: https://master.d3udgp7jaw5lcr.amplifyapp.com
 publish_mode: editorial_workflow
