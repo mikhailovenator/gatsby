@@ -8,7 +8,15 @@ backend:
   # use_workflow: true
   base_url2: http://localhost:9090
   base_url: https://bosswireless-oauth-provider.dev.aws.idt.net
+  commit_messages:
+    create: Create {{collection}} “{{slug}}” {{author-login}}{{author-name}}
+    update: Update {{collection}} “{{slug}}” {{author-login}}{{author-name}}
+    delete: Delete {{collection}} “{{slug}}” {{author-login}}{{author-name}}
+    uploadMedia: Upload “{{path}}” {{author-login}}{{author-name}}
+    deleteMedia: Delete “{{path}}” {{author-login}}{{author-name}}
+    openAuthoring: '{{message}}
 # local_backend: true
+site_url: https://master.d3udgp7jaw5lcr.amplifyapp.com
 publish_mode: editorial_workflow
 media_folder: static/assets
 public_folder: /assets
@@ -19,6 +27,7 @@ collections:
     label: "Pages (English)"
     files:
       - file: "src/pageData/en-us/home/index.md"
+        preview_path: en-us/
         label: "Home"
         name: "home"
         fields:
@@ -66,6 +75,7 @@ collections:
     label: "Pages (Spanish)"
     files:
       - file: "src/pageData/es-us/home/index.md"
+        preview_path: es-us/
         label: "Home"
         name: "home"
         fields:
@@ -111,6 +121,7 @@ collections:
     label: "Settings (English)"
     files:
       - file: "src/pageData/en-us/footer/index.md"
+        preview_path: en-us/
         label: "Footer"
         name: "footer"
         fields:
@@ -120,6 +131,7 @@ collections:
     label: "Settings (Spanish)"
     files:
       - file: "src/pageData/es-us/footer/index.md"
+        preview_path: es-us/
         label: "Footer"
         name: "footer"
         fields:
