@@ -1,6 +1,7 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { useLocalization } from "gatsby-theme-i18n"
+import FooterTemplate from "./FooterTemplate";
 
 const Footer = () => {
     const { locale, config, defaultLang } = useLocalization()
@@ -37,9 +38,7 @@ const Footer = () => {
     `)
 
     return (
-        <footer className="text-center px-4 py-3 max-w-2xl mx-auto lg:max-w-6xl bg-primary">
-            {data[loc].edges[0].node.childMdx.frontmatter.copyright}
-        </footer>
+        <FooterTemplate copyright={data[loc].edges[0].node.childMdx.frontmatter.copyright} />
     )
 };
 

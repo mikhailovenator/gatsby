@@ -6,6 +6,13 @@ module.exports = {
         author: `IDT`,
       },
       plugins: [
+        {
+          resolve: 'gatsby-plugin-typescript',
+          options: {
+            isTSX: true,
+            allExtensions: true,
+          },
+        },
         `gatsby-plugin-postcss`,  
         {
           resolve: `gatsby-source-filesystem`,

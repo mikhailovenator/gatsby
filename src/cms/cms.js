@@ -1,4 +1,4 @@
-// import CMS from 'netlify-cms-app';
-// import MenuPreview from './MenuPreview';
+import CMS from 'netlify-cms-app';
+import FooterPreview from './FooterPreview';
 
-//CMS.registerPreviewTemplate('menu', MenuPreview);
+CMS.registerPreviewTemplate('footer', FooterPreview);
