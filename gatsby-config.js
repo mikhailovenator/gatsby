@@ -15,13 +15,6 @@ module.exports = {
         },
         `gatsby-plugin-postcss`,  
         {
-          resolve: `gatsby-source-filesystem`,
-          options: {
-            path: `${__dirname}/src/pages`,
-            name: `pages`,
-          },
-        },
-        {
           resolve: 'gatsby-source-filesystem',
           options: {
             name: 'assets',
@@ -29,12 +22,6 @@ module.exports = {
           }
         },
         `gatsby-plugin-react-helmet`,
-        {
-          resolve: 'gatsby-plugin-netlify-cms',
-          options: {
-            modulePath: `${__dirname}/src/cms/cms.js`
-          }
-        },
         {
           resolve: `gatsby-theme-i18n`,
           options: {
@@ -52,30 +39,57 @@ module.exports = {
             },
           },
         },
+        "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
         {
           resolve: `gatsby-plugin-mdx`,
           options: {
-            extensions: [`.mdx`, `.md`],
-            gatsbyRemarkPlugins: [
-              `gatsby-remark-images-anywhere`
-            ],
+            extensions: [`.mdx`, `.md`]
           },
         },
+        "gatsby-plugin-mdx-frontmatter",
         {
           resolve: 'gatsby-source-filesystem',
           options: {
-            name: 'pageDataEn',
-            path: `${__dirname}/src/pageData/en-us`
+            name: 'pageData',
+            path: `${__dirname}/src/pageData`
           }
         },
         {
-          resolve: 'gatsby-source-filesystem',
+          resolve: 'gatsby-plugin-netlify-cms',
           options: {
-            name: 'pageDataEs',
-            path: `${__dirname}/src/pageData/es-us`
+            //manualInit: true,
+            modulePath: `${__dirname}/src/cms/cms.tsx`,
+            /*customizeWebpackConfig: (config, { stage, plugins }) => {
+              config.resolve = {
+                ...config.resolve,
+                alias: {
+                  ...config.resolve.alias,
+                  path: require.resolve("path-browserify"),
+                  //stream: require.resolve("stream-browserify"),
+                  os: require.resolve("os-browserify/browser"),
+                  crypto: require.resolve("crypto-browserify"),
+                  //assert: require.resolve("assert/"),
+                  //util: require.resolve("util/"),
+                  https: require.resolve("https-browserify"),
+                  http: require.resolve("stream-http"),
+                  constants: require.resolve("constants-browserify")
+                },
+                fallback: {
+                  ...config.resolve.fallback,
+                  fs: false,
+                  stream: false,
+                  child_process: false,
+                  module: false
+                }
+              };
+              if (stage === "build-javascript" || stage === "develop") {
+                config.plugins.push(plugins.provide({ process: "process/browser" }));
+              }
+              config.plugins.push(plugins.provide({ Buffer: ["buffer", "Buffer"] }));
+            }*/
           }
-        },
+        }
       ]
     }

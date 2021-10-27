@@ -1,5 +1,6 @@
 backend:
   name: github
+  name2: git-gateway
   repo: mikhailovenator/gatsby
   branch: master
   auth_scope: repo
@@ -15,7 +16,7 @@ backend:
     uploadMedia: Upload “{{path}}” {{author-login}}{{author-name}}
     deleteMedia: Delete “{{path}}” {{author-login}}{{author-name}}
     openAuthoring: '{{message}}'
-# local_backend: true
+local_backend2: true
 site_url: https://master.d3udgp7jaw5lcr.amplifyapp.com
 publish_mode: editorial_workflow
 media_folder: static/assets
@@ -24,32 +25,32 @@ collections:
   - name: "en-pages"
     media_folder: ''
     public_folder: ''
-    label: "Pages (English)"
+    label: "English Pages"
     files:
       - file: "src/pageData/en-us/home/index.md"
         preview_path: en-us/
         label: "Home"
         name: "home"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "home-page" }
           - {
-              label: "Header Image",
-              name: "headerImage",
+              label: "Hero Image",
+              name: "heroImage",
               widget: "object",
+              collapsed: true,
+              summary: '{{fields.image}} "{{fields.description}}"',
               fields:
                 [
                   { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
                 ],
             }
-          - { label: "Test Image", name: "testImage", widget: "image" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "Disclaimer", name: "disclaimer", widget: "string" }
-          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
+          - { label: "Disclaimer", name: "disclaimer", minimal: true, widget: "markdown" }
           - {
               label: "Offers",
               name: "offers",
+              collapsed: true,
+              minimize_collapsed: true,
               widget: "list",
               fields:
                 [
@@ -61,43 +62,44 @@ collections:
           - {
               label: "SEO & Meta",
               name: "seo",
+              collapsed: true,
               widget: "object",
               fields:
                 [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Title", name: "title", widget: "string"},
+                  { label: "Keywords", name: "keywords", widget: "string" },
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
   - name: "es-pages"
     media_folder: ''
     public_folder: ''
-    label: "Pages (Spanish)"
+    label: "Spanish Pages"
     files:
       - file: "src/pageData/es-us/home/index.md"
         preview_path: es-us/
         label: "Home"
         name: "home"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page" }
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "home-page" }
           - {
-              label: "Header Image",
-              name: "headerImage",
+              label: "Hero Image",
+              name: "heroImage",
               widget: "object",
+              collapsed: true,
+              summary: '{{fields.image}} "{{fields.description}}"',
               fields:
                 [
                   { label: "Image", name: "image", widget: "image" },
-                  { label: "Image Description", name: "imageAlt", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
                 ],
             }
-          - { label: "Test Image", name: "testImage", widget: "image" }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - { label: "Disclaimer", name: "disclaimer", widget: "string" }
-          - { label: "Developer Groups", name: "developerGroups", widget: "markdown" }
+          - { label: "Disclaimer", name: "disclaimer", minimal: true, widget: "markdown" }
           - {
               label: "Offers",
               name: "offers",
+              collapsed: true,
+              minimize_collapsed: true,
               widget: "list",
               fields:
                 [
@@ -109,31 +111,120 @@ collections:
           - {
               label: "SEO & Meta",
               name: "seo",
+              collapsed: true,
               widget: "object",
               fields:
                 [
-                  { label: "Browser Tab Title", name: "browserTitle", widget: "string"},
-                  { label: "Title", name: "title", widget: "string" },
+                  { label: "Title", name: "title", widget: "string"},
+                  { label: "Keywords", name: "keywords", widget: "string" },
                   { label: "Description", name: "description", widget: "string" },
                 ],
             }
   - name: "en-settings"
-    label: "Settings (English)"
+    media_folder: ''
+    public_folder: ''
+    label: "English Settings"
     files:
+      - file: "src/pageData/en-us/header/index.md"
+        preview_path: en-us/
+        label: "Header"
+        name: "header"
+        fields:
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "header" }
+          - {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              collapsed: true,
+              summary: '{{fields.image}} "{{fields.description}}"',
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
+          - label: "Menu Items"
+            name: "menuItems"
+            label_singular: "Menu Item"
+            widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: '{{fields.name}} - {{fields.link}}'
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "Link"
+                name: "link"
+                widget: "string"
       - file: "src/pageData/en-us/footer/index.md"
         preview_path: en-us/
         label: "Footer"
         name: "footer"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "footer" }
           - { label: "Copyright", name: "copyright", widget: "string" }
+      - file: "src/pageData/en-us/seo/index.md"
+        preview_path: en-us/
+        label: "SEO & Meta"
+        name: "seo"
+        preview: false
+        fields:
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "seo" }
+          - { label: "Title", name: "title", widget: "string"}
+          - { label: "Keywords", name: "keywords", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }
   - name: "es-settings"
-    label: "Settings (Spanish)"
+    media_folder: ''
+    public_folder: ''
+    label: "Spanish Settings"
     files:
+      - file: "src/pageData/es-us/header/index.md"
+        preview_path: es-us/
+        label: "Header"
+        name: "header"
+        fields:
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "header" }
+          - {
+              label: "Logo",
+              name: "logo",
+              widget: "object",
+              collapsed: true,
+              summary: '{{fields.image}} "{{fields.description}}"',
+              fields:
+                [
+                  { label: "Image", name: "image", widget: "image" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
+          - label: "Menu Items"
+            name: "menuItems"
+            label_singular: "Menu Item"
+            widget: "list"
+            collapsed: true
+            minimize_collapsed: true
+            summary: '{{fields.name}} - {{fields.link}}'
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+              - label: "Link"
+                name: "link"
+                widget: "string"
       - file: "src/pageData/es-us/footer/index.md"
         preview_path: es-us/
         label: "Footer"
         name: "footer"
         fields:
-          - { label: "Template Key", name: "templateKey", widget: "hidden", default: "footer" }
-          - { label: "Copyright", name: "copyright", widget: "string" }
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "footer" }
+          - { label: "Copyright", name: "copyright", widget: "string" } 
+      - file: "src/pageData/es-us/seo/index.md"
+        preview_path: es-us/
+        label: "SEO & Meta"
+        name: "seo"
+        preview: false
+        fields:
+          - { label: "Content Key", name: "contentKey", widget: "hidden", default: "seo" }
+          - { label: "Title", name: "title", widget: "string"}
+          - { label: "Keywords", name: "keywords", widget: "string" }
+          - { label: "Description", name: "description", widget: "string" }  
