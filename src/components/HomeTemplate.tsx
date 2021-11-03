@@ -1,6 +1,7 @@
 import * as React from "react"
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image'
+import PreviewCompatibleImage from "./PreviewCompatibleImage";
 
 type HomeTemplateProps = { 
     disclaimer: string; 
@@ -15,10 +16,11 @@ const HomeTemplate = ({disclaimer, heroImage}: HomeTemplateProps) => {
 
     return (
         <>
-            {imageData && <GatsbyImage
+            {/*imageData && <GatsbyImage
                 image={imageData}
                 alt={heroImage.description}
-            />}
+            />*/}
+            <PreviewCompatibleImage imageInfo={{ image: heroImage.image, alt: heroImage.description }} />
 
             <h1>Title</h1>
             <p className="mb-4">
