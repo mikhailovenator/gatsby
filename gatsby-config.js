@@ -57,6 +57,13 @@ module.exports = {
           }
         },
         {
+          resolve: 'gatsby-source-filesystem',
+          options: {
+            name: 'dynamicPageData',
+            path: `${__dirname}/src/dynamicPageData`
+          }
+        },
+        {
           resolve: 'gatsby-plugin-netlify-cms',
           options: {
             //manualInit: true,

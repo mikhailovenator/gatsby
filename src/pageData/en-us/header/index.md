@@ -9,7 +9,7 @@ menuItems:
   - name: Coverage
     link: /en-us/coverage
   - name: Join us
-    link: /en-us/activation
+    link: /en-us/join-us
   - name: Home
     link: /en-us/
 ---

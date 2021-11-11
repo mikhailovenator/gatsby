@@ -228,3 +228,43 @@ collections:
           - { label: "Title", name: "title", widget: "string"}
           - { label: "Keywords", name: "keywords", widget: "string" }
           - { label: "Description", name: "description", widget: "string" }  
+  - name: "en-dynamic-pages"
+    label: "English Dynamic Pages"
+    folder: "src/dynamicPageData/en-us"
+    create: true
+    identifier_field: name
+    media_folder: ''
+    public_folder: ''
+    fields:
+      - {label: "Content Key", name: "contentKey", widget: "hidden", default: "dynamicPage"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Url", name: "slug", widget: "string"}
+      - label: 'Content Sections'
+        name: 'sections'
+        widget: 'list'
+        types:
+          - label: 'Hero Image'
+            name: 'heroImage'
+            widget: object
+            fields:
+              - { label: "Content Key", name: "contentKey", widget: "hidden", default: "heroImage" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Description", name: "description", widget: "string" }
+          - label: 'Markup'
+            name: 'markup'
+            widget: object
+            fields:
+              - { label: "Content Key", name: "contentKey", widget: "hidden", default: "markup" }
+              - { label: "Content", name: "content", minimal: true, widget: "markdown" }
+      - {
+              label: "SEO & Meta",
+              name: "seo",
+              collapsed: true,
+              widget: "object",
+              fields:
+                [
+                  { label: "Title", name: "title", widget: "string"},
+                  { label: "Keywords", name: "keywords", widget: "string" },
+                  { label: "Description", name: "description", widget: "string" },
+                ],
+            }
